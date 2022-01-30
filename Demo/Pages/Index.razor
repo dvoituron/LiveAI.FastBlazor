@@ -1,0 +1,32 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h2>Buttons</h2>
+
+<FluentButton OnClick="@((e) => AddTrace("Button Clicked"))" Appearance="Appearance.Neutral">Button</FluentButton>
+<FluentButton OnClick="@((e) => AddTrace("Accent Clicked"))" Appearance="Appearance.Accent">Accent</FluentButton>
+
+<h2>Text Fields</h2>
+<FluentTextField Placeholder="Enter your text here" ValueChanged="@((e) => AddTrace($"TextField Value = {e}"))" />
+
+<h2>Data Grid</h2>  
+<FluentDataGrid GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+    <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+        <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Column 1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Column 2</FluentDataGridCell>
+    </FluentDataGridRow>
+    <FluentDataGridRow TItem=string>
+        <FluentDataGridCell GridColumn=1>1.1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2>1.2</FluentDataGridCell>
+    </FluentDataGridRow>
+    <FluentDataGridRow TItem=string>
+        <FluentDataGridCell GridColumn=1>2.1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2> 2.2</FluentDataGridCell>
+    </FluentDataGridRow>
+</FluentDataGrid>
+
+<h2>Console</h2>
+<div>
+    @((MarkupString)ConsoleContent.Replace(Environment.NewLine, "<br/>"))
+</div>

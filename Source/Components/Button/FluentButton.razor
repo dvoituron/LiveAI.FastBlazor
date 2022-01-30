@@ -1,0 +1,7 @@
+﻿@namespace LiveAI.FastBlazor.Components
+@using LiveAI.FastBlazor.Helpers
+<fluent-button appearance="@Appearance.ToAttributeValue()" 
+               disabled="@Disabled" 
+               autofocus="@Autofocus" 
+               onclick="@OnClickHandler"
+               @attributes="AdditionalAttributes">@ChildContent</fluent-button>
