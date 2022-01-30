@@ -7,8 +7,20 @@
 <FluentButton OnClick="@((e) => AddTrace("Button Clicked"))" Appearance="Appearance.Neutral">Button</FluentButton>
 <FluentButton OnClick="@((e) => AddTrace("Accent Clicked"))" Appearance="Appearance.Accent">Accent</FluentButton>
 
+<CodeSnippet>@(@"
+<FluentButton OnClick=""@((e) => AddTrace(""Button Clicked""))"" 
+              Appearance=""Appearance.Neutral"">Button</FluentButton>
+<FluentButton OnClick=""@((e) => AddTrace(""Accent Clicked""))"" 
+              Appearance=""Appearance.Neutral"">Accent</FluentButton>")
+</CodeSnippet>
+
 <h2>Text Fields</h2>
 <FluentTextField Placeholder="Enter your text here" ValueChanged="@((e) => AddTrace($"TextField Value = {e}"))" />
+
+<CodeSnippet>@(@"
+<FluentTextField Placeholder=""Enter your text here"" 
+                 ValueChanged=""@((e) => AddTrace($""TextField Value = {e}""))"" />")
+</CodeSnippet>
 
 <h2>Data Grid</h2>  
 <FluentDataGrid GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
