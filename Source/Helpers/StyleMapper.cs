@@ -18,14 +18,14 @@ namespace LiveAI.FastBlazor.Helpers
 
         public StyleMapper Add(string? style)
         {
-            return AddIf(style, () => true);
+            return AddIf(style + ";", () => true);
         }
 
         public StyleMapper AddIf(string? style, Func<bool> func)
         {
             if (!String.IsNullOrEmpty(style))
             {
-                mapConditions.Add(() => style, func);
+                mapConditions.Add(() => style + ";", func);
             }
             return this;
         }

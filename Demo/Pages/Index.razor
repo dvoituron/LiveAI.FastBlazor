@@ -40,24 +40,30 @@
 
 <h2>Stack Panel</h2>
 
-<FluentStackPanel>
-    <div style="background-color: lightsalmon;">First item</div>
-    <div style="background-color: lightyellow;">Second item</div>
+<FluentStackPanel HorizontalAlignment="HorizontalAlignment.Center"
+                  Style="background-color: lightsalmon">
+    <div>First item</div>
+    <div>Second item</div>
     <FluentStackPanel Orientation="Orientation.Horizontal"
-                      AlignmentItems="AlignmentItems.Center">
-        <div style="background-color: lightgreen;">Hello</div>
-        <div style="background-color: lightblue;">World</div>
+                      HorizontalAlignment="HorizontalAlignment.Center"
+                      VerticalAlignment="VerticalAlignment.Center"
+                      Style="background-color: lightblue">
+        <div style="width: 100px">Item<br />3.1</div>
+        <div>Item 3.2</div>
     </FluentStackPanel>
 </FluentStackPanel>
 
 <CodeSnippet>@(@"
-<FluentStackPanel>
+<FluentStackPanel HorizontalAlignment=""HorizontalAlignment.Center""
+                  Style=""background-color: lightsalmon"">
     <div>First item</div>
     <div>Second item</div>
     <FluentStackPanel Orientation=""Orientation.Horizontal""
-                      AlignmentItems=""AlignmentItems.Center"">
-        <div>Hello</div>
-        <div>World</div>
+                      HorizontalAlignment=""HorizontalAlignment.Center""
+                      VerticalAlignment=""VerticalAlignment.Center""
+                      Style=""background-color: lightblue"">
+        <div style=""width: 100px"">Item<br />3.1</div>
+        <div>Item 3.2</div>
     </FluentStackPanel>
 </FluentStackPanel>")
 </CodeSnippet>

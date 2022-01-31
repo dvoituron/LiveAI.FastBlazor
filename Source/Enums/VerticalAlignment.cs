@@ -2,10 +2,10 @@
 
 namespace LiveAI.FastBlazor
 {
-    public enum AlignmentItems
+    public enum VerticalAlignment
     {
-        Left,
+        Top,
         Center,
-        Right,
+        Bottom,
     }
 }

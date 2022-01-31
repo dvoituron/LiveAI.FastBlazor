@@ -8,10 +8,14 @@ namespace LiveAI.FastBlazor.Components
     {
         protected override void OnInitialized()
         {
-            StyleMapper.Add(Style)
-                       .AddIf("align-items", GetAlignment(), () => Orientation == Orientation.Vertical)
-                       .AddIf("justify-content", GetAlignment(), () => Orientation == Orientation.Horizontal)
-                       .AddIf("gap", $"{Gap}px", () => Gap > 0);
+            StyleMapper.Add(Style)                       
+                       .AddIf("align-items", GetHorizontalAlignment(), () => Orientation == Orientation.Vertical)
+                       
+                       .AddIf("justify-content", GetHorizontalAlignment(), () => Orientation == Orientation.Horizontal)
+                       .AddIf("align-items", GetVerticalAlignment(), () => Orientation == Orientation.Horizontal)
+
+                       .AddIf("gap", $"{Gap}px", () => Gap.HasValue)
+                       .AddIf("width", Width, () => !String.IsNullOrEmpty(Width));
 
             base.OnInitialized();
         }
@@ -20,23 +24,44 @@ namespace LiveAI.FastBlazor.Components
         public RenderFragment? ChildContent { get; set; }
 
         [Parameter]
-        public AlignmentItems AlignmentItems { get; set; } = AlignmentItems.Left;
+        public HorizontalAlignment HorizontalAlignment { get; set; } = HorizontalAlignment.Left;
+
+        [Parameter]
+        public VerticalAlignment VerticalAlignment { get; set; } = VerticalAlignment.Top;
 
         [Parameter]
         public Orientation Orientation { get; set; } = Orientation.Vertical;
 
         [Parameter]
-        public uint Gap { get; set; } = 10;
+        public string? Width { get; set; } = "100%";
 
-        private string GetAlignment()
+        [Parameter]
+        public int? Gap { get; set; } = 10;
+
+        private string GetHorizontalAlignment()
         {
-            switch (AlignmentItems)
+            switch (HorizontalAlignment)
             {
-                case AlignmentItems.Left:
+                case HorizontalAlignment.Left:
                     return "start";
-                case AlignmentItems.Center:
+                case HorizontalAlignment.Center:
                     return "center";
-                case AlignmentItems.Right:
+                case HorizontalAlignment.Right:
+                    return "end";
+                default:
+                    return "start";
+            }
+        }
+
+        private string GetVerticalAlignment()
+        {
+            switch (VerticalAlignment)
+            {
+                case VerticalAlignment.Top:
+                    return "start";
+                case VerticalAlignment.Center:
+                    return "center";
+                case VerticalAlignment.Bottom:
                     return "end";
                 default:
                     return "start";
