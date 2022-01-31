@@ -19,4 +19,8 @@
     <Folder Include="Icons\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Components\DesignSystemProvider\FluentDesignSystemProvider.razor" />
+  </ItemGroup>
+
 </Project>

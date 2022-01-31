@@ -15,11 +15,11 @@
 </CodeSnippet>
 
 <h2>Text Fields</h2>
-<FluentTextField Placeholder="Enter your text here" ValueChanged="@((e) => AddTrace($"TextField Value = {e}"))" />
+<FluentTextField Placeholder="Enter your text here" ValueChanged="@((e) => AddTrace($"TextField Value = " + e))" />
 
 <CodeSnippet>@(@"
 <FluentTextField Placeholder=""Enter your text here"" 
-                 ValueChanged=""@((e) => AddTrace($""TextField Value = {e}""))"" />")
+                 ValueChanged=""@((e) => AddTrace($""TextField Value "" + e))"" />")
 </CodeSnippet>
 
 <h2>Data Grid</h2>  
@@ -37,6 +37,30 @@
         <FluentDataGridCell GridColumn=2> 2.2</FluentDataGridCell>
     </FluentDataGridRow>
 </FluentDataGrid>
+
+<h2>Stack Panel</h2>
+
+<FluentStackPanel>
+    <div style="background-color: lightsalmon;">First item</div>
+    <div style="background-color: lightyellow;">Second item</div>
+    <FluentStackPanel Orientation="Orientation.Horizontal"
+                      AlignmentItems="AlignmentItems.Center">
+        <div style="background-color: lightgreen;">Hello</div>
+        <div style="background-color: lightblue;">World</div>
+    </FluentStackPanel>
+</FluentStackPanel>
+
+<CodeSnippet>@(@"
+<FluentStackPanel>
+    <div>First item</div>
+    <div>Second item</div>
+    <FluentStackPanel Orientation=""Orientation.Horizontal""
+                      AlignmentItems=""AlignmentItems.Center"">
+        <div>Hello</div>
+        <div>World</div>
+    </FluentStackPanel>
+</FluentStackPanel>")
+</CodeSnippet>
 
 <h2>Console</h2>
 <div>
