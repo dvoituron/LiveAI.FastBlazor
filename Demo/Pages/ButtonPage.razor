@@ -1,0 +1,31 @@
+﻿@page "/button"
+
+<h2>Buttons</h2>
+
+<FluentButton OnClick="@((e) => AddTrace("Button Clicked"))" Appearance="Appearance.Neutral">Button</FluentButton>
+<FluentButton OnClick="@((e) => AddTrace("Accent Clicked"))" Appearance="Appearance.Accent">Accent</FluentButton>
+
+<CodeSnippet>@(@"
+<FluentButton OnClick=""@((e) => AddTrace(""Button Clicked""))"" 
+              Appearance=""Appearance.Neutral"">Button</FluentButton>
+<FluentButton OnClick=""@((e) => AddTrace(""Accent Clicked""))"" 
+              Appearance=""Appearance.Neutral"">Accent</FluentButton>")
+</CodeSnippet>
+
+<h2>Properties</h2>
+...
+
+<h2>Console</h2>
+<div>
+    @((MarkupString)ConsoleContent.Replace(Environment.NewLine, "<br/>"))
+</div>
+
+@code 
+{
+    string ConsoleContent { get; set; } = "";
+
+    void AddTrace(string text)
+    {
+        ConsoleContent = $"{DateTime.Now:HH:mm:ss} - {text}{Environment.NewLine}{ConsoleContent}";            
+    }
+}

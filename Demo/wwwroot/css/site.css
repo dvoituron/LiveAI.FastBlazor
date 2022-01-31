@@ -60,3 +60,30 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.navigation {
+    grid-area: navigation;
+    background-color: var(--fill-color);
+    color: var(--neutral-foreground-rest);
+    padding-left: calc(var(--design-unit) * 3px);
+}
+
+    .navigation > ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .navigation h1 {
+        font-size: var(--type-ramp-plus-1-font-size);
+        line-height: var(--type-ramp-plus-1-line-height);
+        padding: 15px calc((10 + (var(--design-unit) * 2 * var(--density))) * 1px);
+        margin: 0;
+    }
+
+    .navigation fluent-anchor {
+        width: 100%;
+    }
+
+        .navigation fluent-anchor::part(control) {
+            justify-content: start;
+        }

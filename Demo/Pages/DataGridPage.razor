@@ -1,0 +1,40 @@
+﻿@page "/DataGrid"
+
+<h2>Data Grid</h2>  
+
+<div>Under construction</div>
+
+<FluentDataGrid GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns="1fr 1fr" TItem=string>
+    <FluentDataGridRow TItem=string RowType="DataGridRowType.Header">
+        <FluentDataGridCell GridColumn=1 CellType="DataGridCellType.ColumnHeader">Column 1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2 CellType="DataGridCellType.ColumnHeader">Column 2</FluentDataGridCell>
+    </FluentDataGridRow>
+    <FluentDataGridRow TItem=string>
+        <FluentDataGridCell GridColumn=1>1.1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2>1.2</FluentDataGridCell>
+    </FluentDataGridRow>
+    <FluentDataGridRow TItem=string>
+        <FluentDataGridCell GridColumn=1>2.1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2> 2.2</FluentDataGridCell>
+    </FluentDataGridRow>
+</FluentDataGrid>
+
+<CodeSnippet>@(@"
+<FluentDataGrid GenerateHeader=GenerateHeaderOptions.None GridTemplateColumns=""1fr 1fr"" TItem=string>
+    <FluentDataGridRow TItem=string RowType=""DataGridRowType.Header"">
+        <FluentDataGridCell GridColumn=1 CellType=""DataGridCellType.ColumnHeader"">Column 1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2 CellType=""DataGridCellType.ColumnHeader"">Column 2</FluentDataGridCell>
+    </FluentDataGridRow>
+    <FluentDataGridRow TItem=string>
+        <FluentDataGridCell GridColumn=1>1.1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2>1.2</FluentDataGridCell>
+    </FluentDataGridRow>
+    <FluentDataGridRow TItem=string>
+        <FluentDataGridCell GridColumn=1>2.1</FluentDataGridCell>
+        <FluentDataGridCell GridColumn=2> 2.2</FluentDataGridCell>
+    </FluentDataGridRow>
+</FluentDataGrid>")
+</CodeSnippet>
+
+<h2>Properties</h2>
+...
