@@ -2,7 +2,7 @@
 
 namespace LiveAI.FastBlazor.Helpers
 {
-    public class StyleMapper
+    public class ClassMapper
     {
         private Dictionary<Func<string>, Func<bool>> mapConditions = new Dictionary<Func<string>, Func<bool>>();
 
@@ -11,16 +11,16 @@ namespace LiveAI.FastBlazor.Helpers
             return string.Join(" ", mapConditions.Where(i => i.Value()).Select(i => i.Key()));
         }
 
-        public StyleMapper Add(string? style)
+        public ClassMapper Add(string? name)
         {
-            return AddIf(style + ";", () => true);
+            return AddIf(name, () => true);
         }
 
-        public StyleMapper AddIf(string? style, Func<bool> func)
+        public ClassMapper AddIf(string? name, Func<bool> func)
         {
-            if (!String.IsNullOrEmpty(style))
+            if (!String.IsNullOrEmpty(name))
             {
-                mapConditions.Add(() => style + ";", func);
+                mapConditions.Add(() => name, func);
             }
             return this;
         }

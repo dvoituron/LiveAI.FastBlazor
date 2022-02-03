@@ -8,14 +8,18 @@ namespace LiveAI.FastBlazor.Components
     {
         protected override void OnInitialized()
         {
-            StyleMapper.Add(Style)                       
-                       .AddIf("align-items", GetHorizontalAlignment(), () => Orientation == Orientation.Vertical)
+            ClassMapper.Add(Class)
+                       .AddIf("stack-horizontal",() =>  Orientation == Orientation.Horizontal)
+                       .AddIf("stack-vertical", () => Orientation == Orientation.Vertical);
                        
-                       .AddIf("justify-content", GetHorizontalAlignment(), () => Orientation == Orientation.Horizontal)
-                       .AddIf("align-items", GetVerticalAlignment(), () => Orientation == Orientation.Horizontal)
+            StyleMapper.Add(Style)                       
+                       .AddIf($"align-items: {GetHorizontalAlignment()}", () => Orientation == Orientation.Vertical)
+                       
+                       .AddIf($"justify-content: {GetHorizontalAlignment()}", () => Orientation == Orientation.Horizontal)
+                       .AddIf($"align-items: {GetVerticalAlignment()}", () => Orientation == Orientation.Horizontal)
 
-                       .AddIf("gap", $"{Gap}px", () => Gap.HasValue)
-                       .AddIf("width", Width, () => !String.IsNullOrEmpty(Width));
+                       .AddIf($"gap: {Gap}px", () => Gap.HasValue)
+                       .AddIf($"width: {Width}", () => !String.IsNullOrEmpty(Width));
 
             base.OnInitialized();
         }

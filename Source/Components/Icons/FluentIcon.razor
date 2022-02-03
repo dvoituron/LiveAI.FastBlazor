@@ -1,0 +1,16 @@
+﻿@namespace LiveAI.FastBlazor.Components
+@inherits Base.FluentComponentBase
+@if (!string.IsNullOrEmpty(Icon) && Icon.Trim().StartsWith(("<")))
+{
+    <svg @attributes="AdditionalAttributes" focusable="false" viewBox="@ViewBox" aria-hidden="true" >
+        @if (!String.IsNullOrEmpty(Title))
+        {
+            <title>@Title</title>
+        }
+        @((MarkupString)@Icon)
+    </svg>
+}
+else
+{
+    <span @attributes="AdditionalAttributes" title="@Title">@((MarkupString)@Icon)</span>
+}

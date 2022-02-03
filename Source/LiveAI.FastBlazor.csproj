@@ -16,11 +16,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Icons\" />
+    <None Include="Components\DesignSystemProvider\FluentDesignSystemProvider.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Components\DesignSystemProvider\FluentDesignSystemProvider.razor" />
+    <None Update="Components\Icons\IconsFilled.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IconsFilled.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Components\Icons\IconsFilled.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IconsFilled.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,14 @@
+﻿<div>
+    @((MarkupString)ConsoleContent.Replace(Environment.NewLine, "<br/>"))
+</div>
+
+@code 
+{
+    [Parameter]
+    public string ConsoleContent { get; set; } = "";
+
+    public void AddTrace(string text)
+    {
+        ConsoleContent = $"{DateTime.Now:HH:mm:ss} - {text}{Environment.NewLine}{ConsoleContent}";            
+    }
+}

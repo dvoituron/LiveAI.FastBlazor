@@ -1,14 +1,26 @@
-﻿@page "/button"
+﻿@page "/buttons"
 
 <h2>Buttons</h2>
 
-<FluentButton OnClick="@((e) => AddTrace("Button Clicked"))" Appearance="Appearance.Neutral">Button</FluentButton>
-<FluentButton OnClick="@((e) => AddTrace("Accent Clicked"))" Appearance="Appearance.Accent">Accent</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Button Clicked"))" 
+              Appearance="Appearance.Neutral">Button</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Accent Clicked"))" 
+              Appearance="Appearance.Accent">Accent</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("HypertextHypertext Clicked"))" 
+              Appearance="Appearance.Hypertext">HypertextHypertext</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Lightweight Clicked"))" 
+              Appearance="Appearance.Lightweight">Lightweight</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Outline Clicked"))" 
+              Appearance="Appearance.Outline">Outline</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Stealth Clicked"))" 
+              Appearance="Appearance.Stealth">Stealth</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Filled Clicked"))" 
+              Appearance="Appearance.Filled">Filled</FluentButton>
 
 <CodeSnippet>@(@"
-<FluentButton OnClick=""@((e) => AddTrace(""Button Clicked""))"" 
+<FluentButton OnClick=""@((e) => Console.AddTrace(""Button Clicked""))"" 
               Appearance=""Appearance.Neutral"">Button</FluentButton>
-<FluentButton OnClick=""@((e) => AddTrace(""Accent Clicked""))"" 
+<FluentButton OnClick=""@((e) => Console.AddTrace(""Accent Clicked""))"" 
               Appearance=""Appearance.Neutral"">Accent</FluentButton>")
 </CodeSnippet>
 
@@ -16,16 +28,9 @@
 ...
 
 <h2>Console</h2>
-<div>
-    @((MarkupString)ConsoleContent.Replace(Environment.NewLine, "<br/>"))
-</div>
+<ConsoleLog @ref="Console" />
 
 @code 
 {
-    string ConsoleContent { get; set; } = "";
-
-    void AddTrace(string text)
-    {
-        ConsoleContent = $"{DateTime.Now:HH:mm:ss} - {text}{Environment.NewLine}{ConsoleContent}";            
-    }
+    ConsoleLog Console = default!;
 }
