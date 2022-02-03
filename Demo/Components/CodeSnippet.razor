@@ -2,11 +2,11 @@
 
 @code {
     [Inject]
-    private IJSRuntime _js { get; set; }
-        
-    [Parameter] 
-    public RenderFragment ChildContent { get; set; }
-    
+    private IJSRuntime _js { get; set; } = default!;
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; } = default!;
+
     [Parameter] 
     public string Language { get; set; } = "language-xml";
 

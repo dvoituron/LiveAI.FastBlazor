@@ -10,7 +10,10 @@ namespace LiveAI.FastBlazor.Components
         {
             base.OnInitialized();
 
-            this.ClassMapper.Add($"icon-size-{Size.ToAttributeValue()}");
+            this.ClassMapper.Add(Class)
+                            .Add($"icon-size-{Size.ToAttributeValue()}");
+            
+            this.StyleMapper.Add(Style);
         }       
 
         /// <summary>

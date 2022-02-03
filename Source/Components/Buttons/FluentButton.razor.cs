@@ -16,6 +16,12 @@ namespace LiveAI.FastBlazor.Components
         public bool Autofocus { get; set; } = false;
 
         [Parameter]
+        public string IconStart { get; set; } = "";
+
+        [Parameter]
+        public string IconEnd { get; set; } = "";
+
+        [Parameter]
         public RenderFragment? ChildContent { get; set; }
 
         [Parameter(CaptureUnmatchedValues = true)]

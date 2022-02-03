@@ -24,8 +24,20 @@
               Appearance=""Appearance.Neutral"">Accent</FluentButton>")
 </CodeSnippet>
 
-<h2>Properties</h2>
+<h4>Properties</h4>
 ...
+
+<h2>Buttons with icon</h2>
+
+<FluentButton Appearance="Appearance.Accent" IconStart="@(Icons.Regular.Add)">Add</FluentButton>
+&nbsp;
+<FluentButton Appearance="Appearance.Neutral" IconEnd="@(Icons.Regular.Delete)">Delete</FluentButton>
+
+<CodeSnippet>@(@"
+<FluentButton Appearance=""Appearance.Accent"" IconStart=""@(Icons.Regular.Add)"">Add</FluentButton>
+<FluentButton Appearance=""Appearance.Neutral"" IconEnd=""@(Icons.Regular.Delete)"">Delete</FluentButton>")
+</CodeSnippet>
+
 
 <h2>Console</h2>
 <ConsoleLog @ref="Console" />

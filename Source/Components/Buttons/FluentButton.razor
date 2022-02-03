@@ -1,7 +1,19 @@
 ﻿@namespace LiveAI.FastBlazor.Components
 @using LiveAI.FastBlazor.Helpers
-<fluent-button appearance="@Appearance.ToAttributeValue()" 
-               disabled="@Disabled" 
-               autofocus="@Autofocus" 
+<fluent-button appearance="@Appearance.ToAttributeValue()"
+               disabled="@Disabled"
+               autofocus="@Autofocus"
                onclick="@OnClickHandler"
-               @attributes="AdditionalAttributes">@ChildContent</fluent-button>
+               @attributes="AdditionalAttributes">
+    <span style="vertical-align: middle;">
+        @if (!string.IsNullOrWhiteSpace(IconStart))
+        {
+            <FluentIcon Icon="@IconStart" Size="@IconSize.Small" Style="vertical-align: text-bottom; padding-right: 5px;" />
+        }
+        @ChildContent
+        @if (!string.IsNullOrWhiteSpace(IconEnd))
+        {
+            <FluentIcon Icon="@IconEnd" Size="@IconSize.Small" Style="vertical-align: text-bottom; padding-left: 5px;" />
+        }
+    </span>
+</fluent-button>
