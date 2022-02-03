@@ -29,9 +29,11 @@
 
 <h2>Buttons with icon</h2>
 
-<FluentButton Appearance="Appearance.Accent" IconStart="@(Icons.Regular.Add)">Add</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Button 'with Start icon' clicked"))"
+              Appearance="Appearance.Accent" IconStart="@(Icons.Regular.Add)">Add</FluentButton>
 &nbsp;
-<FluentButton Appearance="Appearance.Neutral" IconEnd="@(Icons.Regular.Delete)">Delete</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Button 'with End icon' Clicked"))"
+              Appearance="Appearance.Neutral" IconEnd="@(Icons.Regular.Delete)">Delete</FluentButton>
 
 <CodeSnippet>@(@"
 <FluentButton Appearance=""Appearance.Accent"" IconStart=""@(Icons.Regular.Add)"">Add</FluentButton>

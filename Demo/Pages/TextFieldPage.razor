@@ -2,7 +2,7 @@
 
 <h2>Text Fields</h2>
 <FluentTextField Placeholder="Enter your text here" 
-                 ValueChanged="@((e) => AddTrace($"TextField Value = " + e))" />
+                 ValueChanged="@((e) => Console.AddTrace($"TextField Value = " + e))" />
 
 <CodeSnippet>@(@"
 <FluentTextField Placeholder=""Enter your text here"" 
@@ -13,16 +13,9 @@
 ...
 
 <h2>Console</h2>
-<div>
-    @((MarkupString)ConsoleContent.Replace(Environment.NewLine, "<br/>"))
-</div>
+<ConsoleLog @ref="Console" />
 
 @code 
 {
-    string ConsoleContent { get; set; } = "";
-
-    void AddTrace(string text)
-    {
-        ConsoleContent = $"{DateTime.Now:HH:mm:ss} - {text}{Environment.NewLine}{ConsoleContent}";            
-    }
+    ConsoleLog Console = default!;
 }
