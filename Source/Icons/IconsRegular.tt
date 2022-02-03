@@ -1,0 +1,37 @@
+﻿<#
+    // 1. Open a Command Prompt in a Temp folder (i.e. C:\_Temp)
+    // 2. Run this command: npm install @fluentui/svg-icons
+    // 3. Adapt the SGV_FOLDER constant with your temp folder.
+    // 4. Save this file... the IconsRegular.cs will be updated.
+
+    const string SGV_FOLDER = @"C:\_Temp\node_modules\@fluentui\svg-icons\icons";
+    const string SVG_SUFFIX = "_24_regular.svg";
+    
+    var files = new System.IO.DirectoryInfo(SGV_FOLDER).GetFiles("*" + SVG_SUFFIX);
+    var textInfo = new System.Globalization.CultureInfo("en-US", false).TextInfo;
+
+    string GetSvgContent(System.IO.FileInfo file)
+    {
+        string content = System.IO.File.ReadAllText(file.FullName);
+        return content.Replace("<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\">", "")
+                      .Replace("</svg>", "");
+    }   
+#>
+namespace LiveAI.FastBlazor.Icons
+{
+    /// <summary />
+    public static class Regular
+    {
+<# 
+    foreach(var file in files) 
+    {
+        var name = textInfo.ToTitleCase(file.Name.Replace(SVG_SUFFIX, "")).Replace("_", "");
+        var content = GetSvgContent(file).Replace("\"", "\\\"");
+#>
+        /// <summary />
+        public static string <#=name#> { get; } = "<#=content#>";
+<#
+    }
+#>        
+    }
+}

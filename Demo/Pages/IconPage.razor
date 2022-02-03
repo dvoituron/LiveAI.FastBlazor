@@ -1,2 +1,36 @@
 ﻿@page "/Icons"
-<FluentIcon Icon="@FastBlazor.Components.Icons.Filled.AccessTime" Title="Access Time" />
+@using System.Reflection
+
+<h2>Icons</h2>
+
+Source: <FluentAnchor Href="https://github.com/microsoft/fluentui-system-icons">https://github.com/microsoft/fluentui-system-icons</FluentAnchor>
+
+<CodeSnippet>@(@"
+<FluentIcon Icon=""@FastBlazor.Icons.Regular.Accessibility"" Title=""Accessibility"" />")
+</CodeSnippet>
+
+<br /><br />
+
+
+<FluentStackPanel Orientation="Orientation.Horizontal" IsWrap="true">
+    @foreach(var icon in GetFieldValues(typeof(FastBlazor.Icons.Regular)))
+    {
+        <div class="icon-demo">
+            <FluentIcon Icon="@icon.Value" Title="@icon.Key" />
+            <br/>
+            @icon.Key
+        </div>
+    }
+</FluentStackPanel>
+
+@code 
+{
+    public static Dictionary<string, string> GetFieldValues(Type type)
+    {
+        var data = type.GetProperties(BindingFlags.Public | BindingFlags.Static)
+                       .Where(i => i.PropertyType == typeof(string))
+                       .ToDictionary(i => i.Name,
+                                     i => i.GetValue(null) as string ?? "");
+        return data ?? new Dictionary<string, string>();
+    }
+}

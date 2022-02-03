@@ -9,7 +9,7 @@ namespace LiveAI.FastBlazor.Components
         public string? Href { get; set; }
 
         [Parameter]
-        public Appearance? Appearance { get; set; }
+        public Appearance? Appearance { get; set; } = FastBlazor.Components.Appearance.Hypertext;
 
         [Parameter]
         public RenderFragment? ChildContent { get; set; }

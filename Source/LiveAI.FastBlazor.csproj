@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Components\Icons\IconsFilled.tt">
+    <None Update="Icons\IconsRegular.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>IconsFilled.cs</LastGenOutput>
+      <LastGenOutput>IconsRegular.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -31,10 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Components\Icons\IconsFilled.cs">
+    <Compile Update="Icons\IconsRegular.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>IconsFilled.tt</DependentUpon>
+      <DependentUpon>IconsRegular.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

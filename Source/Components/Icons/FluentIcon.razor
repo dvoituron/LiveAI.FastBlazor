@@ -2,7 +2,7 @@
 @inherits Base.FluentComponentBase
 @if (!string.IsNullOrEmpty(Icon) && Icon.Trim().StartsWith(("<")))
 {
-    <svg @attributes="AdditionalAttributes" focusable="false" viewBox="@ViewBox" aria-hidden="true" >
+    <svg @attributes="AdditionalAttributes" class="@ClassMapper" style="@StyleMapper" focusable="false" viewBox="@ViewBox" aria-hidden="true" >
         @if (!String.IsNullOrEmpty(Title))
         {
             <title>@Title</title>
@@ -12,5 +12,5 @@
 }
 else
 {
-    <span @attributes="AdditionalAttributes" title="@Title">@((MarkupString)@Icon)</span>
+    <span @attributes="AdditionalAttributes" class="@ClassMapper" style="@StyleMapper" title="@Title">@((MarkupString)@Icon)</span>
 }

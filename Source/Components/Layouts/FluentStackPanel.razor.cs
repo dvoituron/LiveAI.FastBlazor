@@ -11,15 +11,16 @@ namespace LiveAI.FastBlazor.Components
             ClassMapper.Add(Class)
                        .AddIf("stack-horizontal",() =>  Orientation == Orientation.Horizontal)
                        .AddIf("stack-vertical", () => Orientation == Orientation.Vertical);
-                       
-            StyleMapper.Add(Style)                       
+
+            StyleMapper.Add(Style)
                        .AddIf($"align-items: {GetHorizontalAlignment()}", () => Orientation == Orientation.Vertical)
-                       
+
                        .AddIf($"justify-content: {GetHorizontalAlignment()}", () => Orientation == Orientation.Horizontal)
                        .AddIf($"align-items: {GetVerticalAlignment()}", () => Orientation == Orientation.Horizontal)
 
                        .AddIf($"gap: {Gap}px", () => Gap.HasValue)
-                       .AddIf($"width: {Width}", () => !String.IsNullOrEmpty(Width));
+                       .AddIf($"width: {Width}", () => !String.IsNullOrEmpty(Width))
+                       .AddIf($"flex-wrap: wrap", () => IsWrap);
 
             base.OnInitialized();
         }
@@ -38,6 +39,9 @@ namespace LiveAI.FastBlazor.Components
 
         [Parameter]
         public string? Width { get; set; } = "100%";
+
+        [Parameter]
+        public bool IsWrap { get; set; } = false;
 
         [Parameter]
         public int? Gap { get; set; } = 10;
