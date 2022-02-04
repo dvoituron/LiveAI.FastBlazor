@@ -1,0 +1,26 @@
+﻿@namespace LiveAI.FastBlazor.Components
+@inherits Base.FluentComponentBase
+@if (IsOpen)
+{
+    <div class="panel-overlay" />
+    <div class="@ClassMapper" style="@StyleMapper" @attributes="AdditionalAttributes">
+        <FluentStackPanel Orientation="Orientation.Vertical" Class="panel-content">
+            <div class="panel-header">
+                <FluentStackPanel Orientation="Orientation.Horizontal" 
+                                  VerticalAlignment="VerticalAlignment.Center">
+                    <div style="width: 100%;">@Header</div>
+                    @if (DisplayCloseButton)
+                    {
+                        <FluentButton IconStart="@(Icons.Regular.Dismiss)"
+                                      Appearance="Appearance.Stealth" 
+                                      title="Cancel"
+                                      OnClick="@(() => CloseButton_Click())"
+                                      Style="color: rgb(96, 94, 92);" />
+                    }
+                </FluentStackPanel>
+            </div>
+            <div class="panel-body">@Body</div>
+            <div class="panel-footer">@Footer</div>
+        </FluentStackPanel>
+    </div>
+}

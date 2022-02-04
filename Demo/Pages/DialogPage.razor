@@ -1,0 +1,57 @@
+﻿@page "/dialogs"
+
+<h2>Dialog Panel</h2>
+
+Click on this button to open a dialog panel.<br/>
+<FluentButton OnClick="@(() => panel.Show())" Appearance="Appearance.Accent" >Open panel</FluentButton>
+
+<FluentPanel @ref="panel"
+             OnOpenChanged="@((e) => Console.AddTrace($"Panel is {(e ? "open" : "close")}"))">
+    <Header>My Header</Header>
+    <Body>My Content</Body>
+    <Footer>
+        <FluentStackPanel Orientation="Orientation.Horizontal">
+            <FluentButton Width="100px" 
+                          OnClick="@(() => panel.Close())"
+                          Appearance="Appearance.Accent">Save</FluentButton>
+            <FluentButton Width="100px" 
+                          OnClick="@(() => panel.Close())"
+                          Appearance="Appearance.Neutral">Cancel</FluentButton>
+        </FluentStackPanel>
+    </Footer>
+</FluentPanel>
+
+<CodeSnippet>@(@"
+<FluentPanel @ref=""panel""
+             OnOpenChanged=""@((e) => Console.AddTrace($""Panel is {(e ? ""open"" : ""close"")}""))"">
+    <Header>My Header</Header>
+    <Body>My Content</Body>
+    <Footer>
+        <FluentStackPanel Orientation=""Orientation.Horizontal"">
+            <FluentButton Width=""100px"" 
+                          OnClick=""@(() => panel.Close())""
+                          Appearance=""Appearance.Accent"">Save</FluentButton>
+            <FluentButton Width=""100px"" 
+                          OnClick=""@(() => panel.Close())""
+                          Appearance=""Appearance.Neutral"">Cancel</FluentButton>
+        </FluentStackPanel>
+    </Footer>
+</FluentPanel>
+
+@code
+{
+    FluentPanel panel = default!;
+}")
+</CodeSnippet>
+
+<h2>Properties</h2>
+...
+
+<h2>Console</h2>
+<ConsoleLog @ref="Console" />
+
+@code
+{
+    ConsoleLog Console = default!;
+    FluentPanel panel = default!;
+}

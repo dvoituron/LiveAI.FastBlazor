@@ -9,7 +9,7 @@
 
     public void AddTrace(string text)
     {
-        ConsoleContent = $"{DateTime.Now:HH:mm:ss} - {text}{Environment.NewLine}{ConsoleContent}";
+        ConsoleContent = $"{ConsoleContent}{DateTime.Now:HH:mm:ss} - {text}{Environment.NewLine}";
         this.StateHasChanged();
     }
 }

@@ -12,15 +12,16 @@ namespace LiveAI.FastBlazor.Components
                        .AddIf("stack-horizontal",() =>  Orientation == Orientation.Horizontal)
                        .AddIf("stack-vertical", () => Orientation == Orientation.Vertical);
 
-            StyleMapper.Add(Style)
-                       .AddIf($"align-items: {GetHorizontalAlignment()}", () => Orientation == Orientation.Vertical)
+            StyleMapper.AddIf($"align-items: {GetHorizontalAlignment()}", () => Orientation == Orientation.Vertical)
 
                        .AddIf($"justify-content: {GetHorizontalAlignment()}", () => Orientation == Orientation.Horizontal)
                        .AddIf($"align-items: {GetVerticalAlignment()}", () => Orientation == Orientation.Horizontal)
 
                        .AddIf($"gap: {Gap}px", () => Gap.HasValue)
                        .AddIf($"width: {Width}", () => !String.IsNullOrEmpty(Width))
-                       .AddIf($"flex-wrap: wrap", () => IsWrap);
+                       .AddIf($"flex-wrap: wrap", () => IsWrap)
+
+                       .Add(Style);
 
             base.OnInitialized();
         }

@@ -1,9 +1,12 @@
 ﻿@namespace LiveAI.FastBlazor.Components
+@inherits Base.FluentComponentBase
 @using LiveAI.FastBlazor.Helpers
 <fluent-button appearance="@Appearance.ToAttributeValue()"
                disabled="@Disabled"
                autofocus="@Autofocus"
                onclick="@OnClickHandler"
+               class="@ClassMapper" 
+               style="@StyleMapper"
                @attributes="AdditionalAttributes">
     @if (!string.IsNullOrWhiteSpace(IconStart))
     {

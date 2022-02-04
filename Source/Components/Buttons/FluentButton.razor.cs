@@ -6,6 +6,14 @@ namespace LiveAI.FastBlazor.Components
 {
     public partial class FluentButton
     {
+        protected override void OnInitialized()
+        {
+            ClassMapper.Add(Class);
+            StyleMapper.AddIf($"width: {Width}", () => !String.IsNullOrEmpty(Width))
+                       .Add(Style);
+            base.OnInitialized();
+        }
+
         [Parameter]
         public Appearance Appearance { get; set; } = Appearance.Neutral;
 
@@ -24,8 +32,8 @@ namespace LiveAI.FastBlazor.Components
         [Parameter]
         public RenderFragment? ChildContent { get; set; }
 
-        [Parameter(CaptureUnmatchedValues = true)]
-        public IDictionary<string, object>? AdditionalAttributes { get; set; }
+        [Parameter]
+        public string? Width { get; set; }
 
         [Parameter] 
         public EventCallback<MouseEventArgs> OnClick { get; set; }
