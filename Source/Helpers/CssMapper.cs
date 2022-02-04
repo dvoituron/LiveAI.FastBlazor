@@ -31,7 +31,14 @@ namespace LiveAI.FastBlazor.Helpers
 
         public CssMapper Add(string? value)
         {
-            return AddIf($"{_prefix}{value}{_suffix}", () => true);
+            if (!String.IsNullOrEmpty(value))
+            {
+                return AddIf($"{_prefix}{value}{_suffix}", () => true);
+            }
+            else
+            {
+                return this;
+            }
         }
 
         public CssMapper AddIf(string? value, Func<bool> func)
@@ -46,7 +53,7 @@ namespace LiveAI.FastBlazor.Helpers
 
         public override string ToString()
         {
-            return string.Join(" ", mapConditions.Where(i => i.Value()).Select(i => i.Key()));
+           return string.Join(" ", mapConditions.Where(i => i.Value()).Select(i => i.Key())).Trim();
         }
     }
 }

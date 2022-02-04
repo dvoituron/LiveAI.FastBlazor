@@ -5,15 +5,13 @@
                autofocus="@Autofocus"
                onclick="@OnClickHandler"
                @attributes="AdditionalAttributes">
-    <span style="vertical-align: middle;">
-        @if (!string.IsNullOrWhiteSpace(IconStart))
-        {
-            <FluentIcon Icon="@IconStart" Size="@IconSize.Small" Style="vertical-align: text-bottom; padding-right: 5px;" />
-        }
-        @ChildContent
-        @if (!string.IsNullOrWhiteSpace(IconEnd))
-        {
-            <FluentIcon Icon="@IconEnd" Size="@IconSize.Small" Style="vertical-align: text-bottom; padding-left: 5px;" />
-        }
-    </span>
+    @if (!string.IsNullOrWhiteSpace(IconStart))
+    {
+        <FluentIcon Icon="@IconStart" Size="@IconSize.Small" slot="@(ChildContent != null ? "start" : "")" />
+    }
+    @ChildContent
+    @if (!string.IsNullOrWhiteSpace(IconEnd))
+    {
+        <FluentIcon Icon="@IconEnd" Size="@IconSize.Small" slot="@(ChildContent != null ? "end" : "")"  />
+    }
 </fluent-button>

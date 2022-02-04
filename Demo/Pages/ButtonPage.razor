@@ -2,26 +2,29 @@
 
 <h2>Buttons</h2>
 
-<FluentButton OnClick="@((e) => Console.AddTrace("Button Clicked"))" 
+<FluentButton OnClick="@((e) => Console.AddTrace("Button Clicked"))"
               Appearance="Appearance.Neutral">Button</FluentButton>
-<FluentButton OnClick="@((e) => Console.AddTrace("Accent Clicked"))" 
+<FluentButton OnClick="@((e) => Console.AddTrace("Accent Clicked"))"
               Appearance="Appearance.Accent">Accent</FluentButton>
-<FluentButton OnClick="@((e) => Console.AddTrace("HypertextHypertext Clicked"))" 
+<FluentButton OnClick="@((e) => Console.AddTrace("HypertextHypertext Clicked"))"
               Appearance="Appearance.Hypertext">HypertextHypertext</FluentButton>
-<FluentButton OnClick="@((e) => Console.AddTrace("Lightweight Clicked"))" 
+<FluentButton OnClick="@((e) => Console.AddTrace("Lightweight Clicked"))"
               Appearance="Appearance.Lightweight">Lightweight</FluentButton>
-<FluentButton OnClick="@((e) => Console.AddTrace("Outline Clicked"))" 
+<FluentButton OnClick="@((e) => Console.AddTrace("Outline Clicked"))"
               Appearance="Appearance.Outline">Outline</FluentButton>
-<FluentButton OnClick="@((e) => Console.AddTrace("Stealth Clicked"))" 
+<FluentButton OnClick="@((e) => Console.AddTrace("Stealth Clicked"))"
               Appearance="Appearance.Stealth">Stealth</FluentButton>
-<FluentButton OnClick="@((e) => Console.AddTrace("Filled Clicked"))" 
+<FluentButton OnClick="@((e) => Console.AddTrace("Filled Clicked"))"
               Appearance="Appearance.Filled">Filled</FluentButton>
+<FluentButton OnClick="@((e) => Console.AddTrace("Disabled Clicked"))"
+              Disabled="true">Disabled</FluentButton>
 
-<CodeSnippet>@(@"
-<FluentButton OnClick=""@((e) => Console.AddTrace(""Button Clicked""))"" 
-              Appearance=""Appearance.Neutral"">Button</FluentButton>
-<FluentButton OnClick=""@((e) => Console.AddTrace(""Accent Clicked""))"" 
-              Appearance=""Appearance.Neutral"">Accent</FluentButton>")
+<CodeSnippet>
+    @(@"
+    <FluentButton OnClick=""@((e) => Console.AddTrace(""Button Clicked""))""
+    Appearance=""Appearance.Neutral"">Button</FluentButton>
+    <FluentButton OnClick=""@((e) => Console.AddTrace(""Accent Clicked""))""
+    Appearance=""Appearance.Neutral"">Accent</FluentButton>")
 </CodeSnippet>
 
 <h4>Properties</h4>
@@ -29,22 +32,33 @@
 
 <h2>Buttons with icon</h2>
 
-<FluentButton OnClick="@((e) => Console.AddTrace("Button 'with Start icon' clicked"))"
-              Appearance="Appearance.Accent" IconStart="@(Icons.Regular.Add)">Add</FluentButton>
-&nbsp;
-<FluentButton OnClick="@((e) => Console.AddTrace("Button 'with End icon' Clicked"))"
-              Appearance="Appearance.Neutral" IconEnd="@(Icons.Regular.Delete)">Delete</FluentButton>
+<FluentStackPanel Orientation="Orientation.Horizontal">
+    <FluentButton OnClick="@((e) => Console.AddTrace("Button 'with Start icon' clicked"))"
+                  Appearance="Appearance.Accent" IconStart="@(Icons.Regular.Add)">Add</FluentButton>
+    <FluentButton OnClick="@((e) => Console.AddTrace("Button 'with End icon' Clicked"))"
+                  Appearance="Appearance.Neutral" IconEnd="@(Icons.Regular.Delete)">Delete</FluentButton>
+</FluentStackPanel>
 
-<CodeSnippet>@(@"
-<FluentButton Appearance=""Appearance.Accent"" IconStart=""@(Icons.Regular.Add)"">Add</FluentButton>
-<FluentButton Appearance=""Appearance.Neutral"" IconEnd=""@(Icons.Regular.Delete)"">Delete</FluentButton>")
+<CodeSnippet>
+    @(@"
+    <FluentButton Appearance=""Appearance.Accent"" IconStart=""@(Icons.Regular.Add)"">Add</FluentButton>
+    <FluentButton Appearance=""Appearance.Neutral"" IconEnd=""@(Icons.Regular.Delete)"">Delete</FluentButton>")
+</CodeSnippet>
+
+<h2>Icon button</h2>
+
+    <FluentButton OnClick="@((e) => Console.AddTrace("Icon Button clicked"))" 
+                  IconStart="@(Icons.Regular.Rocket)" />
+
+<CodeSnippet>
+    @(@"<FluentButton IconStart=""@(Icons.Regular.Rocket)"" />")
 </CodeSnippet>
 
 
 <h2>Console</h2>
 <ConsoleLog @ref="Console" />
 
-@code 
+@code
 {
     ConsoleLog Console = default!;
 }
