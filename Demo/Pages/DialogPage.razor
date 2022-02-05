@@ -3,27 +3,35 @@
 <h2>Dialog Panel</h2>
 
 Click on this button to open a dialog panel.<br/>
-<FluentButton OnClick="@(() => panel.Show())" Appearance="Appearance.Accent" >Open panel</FluentButton>
+<FluentButton OnClick="@(() => IsOpen = true)" Appearance="Appearance.Accent">Open panel</FluentButton>
 
-<FluentPanel @ref="panel"
-             OnOpenChanged="@((e) => Console.AddTrace($"Panel is {(e ? "open" : "close")}"))">
+<FluentPanel @bind-IsOpen="IsOpen" OnIsOpenChanged="@IsOpen_Changed">
     <Header>My Header</Header>
     <Body>My Content</Body>
     <Footer>
         <FluentStackPanel Orientation="Orientation.Horizontal">
             <FluentButton Width="100px" 
-                          OnClick="@(() => panel.Close())"
+                          OnClick="@(() => IsOpen = false)"
                           Appearance="Appearance.Accent">Save</FluentButton>
             <FluentButton Width="100px" 
-                          OnClick="@(() => panel.Close())"
+                          OnClick="@(() => IsOpen = false)"
                           Appearance="Appearance.Neutral">Cancel</FluentButton>
         </FluentStackPanel>
     </Footer>
 </FluentPanel>
 
+@code
+{
+    bool IsOpen = false;
+
+    void IsOpen_Changed(bool isOpen)
+    {
+        Console.AddTrace(IsOpen ? "Panel is open" : "Panel is closed");
+    }
+}
+
 <CodeSnippet>@(@"
-<FluentPanel @ref=""panel""
-             OnOpenChanged=""@((e) => Console.AddTrace($""Panel is {(e ? ""open"" : ""close"")}""))"">
+<FluentPanel @bind-IsOpen=""IsOpen"" OnIsOpenChanged=""@IsOpen_Changed"">
     <Header>My Header</Header>
     <Body>My Content</Body>
     <Footer>
@@ -40,7 +48,12 @@ Click on this button to open a dialog panel.<br/>
 
 @code
 {
-    FluentPanel panel = default!;
+    public bool IsOpen = false;
+
+    void IsOpen_Changed(bool isOpen)
+    {
+        Console.AddTrace(IsOpen ? ""Panel is open"" : ""Panel is closed"");
+    }
 }")
 </CodeSnippet>
 
@@ -53,5 +66,4 @@ Click on this button to open a dialog panel.<br/>
 @code
 {
     ConsoleLog Console = default!;
-    FluentPanel panel = default!;
 }

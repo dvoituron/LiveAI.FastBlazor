@@ -1,15 +1,18 @@
 ﻿using LiveAI.FastBlazor.Helpers;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
 using System;
 
 namespace LiveAI.FastBlazor.Components
 {
     public partial class FluentPanel
     {
-        private bool _isOpen = false;
+        private bool _isOpen;
 
         protected override void OnInitialized()
         {
+            _isOpen = IsOpen;
+
             ClassMapper.Add(Class)
                        .Add("panel-main");
             StyleMapper.Add(Style);
@@ -18,7 +21,7 @@ namespace LiveAI.FastBlazor.Components
         }
 
         [Parameter]
-        public EventCallback<bool> OnOpenChanged { get; set; }
+        public EventCallback<bool> OnIsOpenChanged { get; set; }
 
         [Parameter]
         public RenderFragment? Body { get; set; }
@@ -31,36 +34,32 @@ namespace LiveAI.FastBlazor.Components
 
         [Parameter]
         public bool DisplayCloseButton { get; set; } = true;
-        
-        public bool IsOpen
+
+        [Parameter]
+        public EventCallback<bool> IsOpenChanged { get; set; }
+
+        [Parameter]
+        public bool IsOpen { get; set; }
+
+        protected async override Task OnParametersSetAsync()
         {
-            get
+            if (_isOpen != IsOpen)
             {
-                return _isOpen;
-            }
-            private set
-            {
-                if (_isOpen != value)
-                {
-                    _isOpen = value;
-                    OnOpenChanged.InvokeAsync(_isOpen);
-                }
+                _isOpen = IsOpen;
+                await OnIsOpenChanged.InvokeAsync(IsOpen);
             }
         }
 
-        public void Show()
-        { 
+        protected async virtual Task OpenAsync()
+        {
             IsOpen = true;
+            await IsOpenChanged.InvokeAsync(IsOpen);
         }
 
-        public void Close()
+        protected async virtual Task CloseAsync()
         {
             IsOpen = false;
-        }
-
-        protected virtual void CloseButton_Click()
-        {
-            IsOpen = false;
+            await IsOpenChanged.InvokeAsync(IsOpen);
         }
     }
 }
