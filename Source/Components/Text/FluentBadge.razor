@@ -1,0 +1,7 @@
+@namespace LiveAI.FastBlazor.Components
+@inherits Base.FluentComponentBase
+@using LiveAI.FastBlazor.Helpers
+<fluent-badge appearance="@Appearance.ToAttributeValue()" 
+              fill="@Fill.ToAttributeValue()" 
+              color="@Color.ToAttributeValue()" 
+              @attributes="AdditionalAttributes">@ChildContent</fluent-badge>

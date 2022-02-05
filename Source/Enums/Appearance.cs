@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LiveAI.FastBlazor.Components
+namespace LiveAI.FastBlazor
 {
     public enum Appearance
     {
