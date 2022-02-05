@@ -20,11 +20,11 @@
               Disabled="true">Disabled</FluentButton>
 
 <CodeSnippet>
-    @(@"
-    <FluentButton OnClick=""@((e) => Console.AddTrace(""Button Clicked""))""
-    Appearance=""Appearance.Neutral"">Button</FluentButton>
-    <FluentButton OnClick=""@((e) => Console.AddTrace(""Accent Clicked""))""
-    Appearance=""Appearance.Neutral"">Accent</FluentButton>")
+@(@"
+<FluentButton OnClick=""@((e) => Console.AddTrace(""Button Clicked""))""
+              Appearance=""Appearance.Neutral"">Button</FluentButton>
+<FluentButton OnClick=""@((e) => Console.AddTrace(""Accent Clicked""))""
+              Appearance=""Appearance.Neutral"">Accent</FluentButton>")
 </CodeSnippet>
 
 <h4>Properties</h4>
@@ -40,9 +40,11 @@
 </FluentStackPanel>
 
 <CodeSnippet>
-    @(@"
-    <FluentButton Appearance=""Appearance.Accent"" IconStart=""@(Icons.Regular.Add)"">Add</FluentButton>
-    <FluentButton Appearance=""Appearance.Neutral"" IconEnd=""@(Icons.Regular.Delete)"">Delete</FluentButton>")
+@(@"
+<FluentButton Appearance=""Appearance.Accent"" 
+              IconStart=""@(Icons.Regular.Add)"">Add</FluentButton>
+<FluentButton Appearance=""Appearance.Neutral"" 
+              IconEnd=""@(Icons.Regular.Delete)"">Delete</FluentButton>")
 </CodeSnippet>
 
 <h2>Icon button</h2>
