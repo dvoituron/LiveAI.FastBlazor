@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveAI.FastBlazor.Demo", "Demo\LiveAI.FastBlazor.Demo.csproj", "{AB630DDC-0DD3-43C2-964C-520705D255EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveAI.FastBlazor", "Source\LiveAI.FastBlazor.csproj", "{46FFA20E-8D75-41E8-B95B-3496EEA6D230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveAI.FastBlazor", "Source\LiveAI.FastBlazor.csproj", "{46FFA20E-8D75-41E8-B95B-3496EEA6D230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastBlazor.Tests", "Tests\FastBlazor.Tests.csproj", "{57651DF9-1792-4E4E-9B6D-832BF98399B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{46FFA20E-8D75-41E8-B95B-3496EEA6D230}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46FFA20E-8D75-41E8-B95B-3496EEA6D230}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46FFA20E-8D75-41E8-B95B-3496EEA6D230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57651DF9-1792-4E4E-9B6D-832BF98399B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57651DF9-1792-4E4E-9B6D-832BF98399B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57651DF9-1792-4E4E-9B6D-832BF98399B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57651DF9-1792-4E4E-9B6D-832BF98399B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

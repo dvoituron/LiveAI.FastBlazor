@@ -51,9 +51,13 @@ namespace LiveAI.FastBlazor.Helpers
         }
 
 
-        public override string ToString()
+        public override string? ToString()
         {
-           return string.Join(" ", mapConditions.Where(i => i.Value()).Select(i => i.Key())).Trim();
+            var css = string.Join(" ", mapConditions.Where(i => i.Value()).Select(i => i.Key())).Trim();
+            if (String.IsNullOrEmpty(css))
+                return null;
+            else
+                return css;
         }
     }
 }
