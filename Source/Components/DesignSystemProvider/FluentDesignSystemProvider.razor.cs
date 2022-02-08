@@ -5,6 +5,9 @@ namespace LiveAI.FastBlazor.Components
     public partial class FluentDesignSystemProvider
     {
         [Parameter]
+        public bool? UseDefault { get; set; }
+
+        [Parameter]
         public bool? NoPaint { get; set; }
 
         [Parameter]
@@ -24,6 +27,7 @@ namespace LiveAI.FastBlazor.Components
 
         [Parameter]
         public LocalizationDirection? Direction { get; set; } = LocalizationDirection.ltr;
+
         [Parameter]
         public int? BaseHeightMultiplier { get; set; }
 
@@ -190,6 +194,6 @@ namespace LiveAI.FastBlazor.Components
         public RenderFragment? ChildContent { get; set; }
 
         [Parameter(CaptureUnmatchedValues = true)]
-        public IDictionary<string, object>? AdditionalAttributes { get; set; }
+        public IDictionary<string, object>? AdditionalAttributes { get; set; }    
     }
 }
